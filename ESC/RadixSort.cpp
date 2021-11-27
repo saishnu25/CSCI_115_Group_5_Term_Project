@@ -1,5 +1,4 @@
 #include "RadixSort.h"
-#include <string>
 #include <vector>
 
 void RadixSort(int array[], int n)
@@ -11,33 +10,25 @@ void RadixSort(int array[], int n)
         if (array[i] > maxValue) maxValue = array[i];
     }
 
-    int maxValueSize = std::to_string(maxValue).length();
-
-    for (int i = 0; i < maxValueSize; i++)
+    for (int i = 1; maxValue / i > 0; i *= 10)
     {
         int frequencyArray[10] = {};
 
         for (int j = 0; j < n; j++)
         {
-            std::string number = std::to_string(array[j]);
-            int digitIndex = ((int)number.length() - 1) - i;
-            int frequencyArrayIndex = (digitIndex >= 0) ? (int)number[digitIndex] - 48 : 0;
-            frequencyArray[frequencyArrayIndex]++;
+            frequencyArray[(array[j] / i) % 10]++;
         }
 
-        for (int i = 1; i < 10; i++)
+        for (int j = 1; j < 10; j++)
         {
-            frequencyArray[i] += frequencyArray[i - 1];
+            frequencyArray[j] += frequencyArray[j - 1];
         }
 
         std::vector<int> outputArray(n);
         for (int j = n - 1; j >= 0; j--)
         {
-            std::string number = std::to_string(array[j]);
-            int digitIndex = ((int)number.length() - 1) - i;
-            int frequencyArrayIndex = (digitIndex >= 0) ? (int)number[digitIndex] - 48 : 0;
-            outputArray[frequencyArray[frequencyArrayIndex] - 1] = array[j];
-            frequencyArray[frequencyArrayIndex]--;
+            outputArray[frequencyArray[(array[j] / i) % 10] - 1] = array[j];
+            frequencyArray[(array[j] / i) % 10]--;
         }
 
         std::copy(std::begin(outputArray), std::end(outputArray), array);
