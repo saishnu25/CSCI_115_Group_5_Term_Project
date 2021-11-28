@@ -3,4 +3,5 @@ This GitHub repository contains all codes, report, and analysis conducted for th
 
 Group Members include: Eric Yang, Luis Gutierrez, Renato Torres, Robert Mawhinney, Saishnu Ramesh Kumar.
 
-This is an introductory README File, the README files for Part 1 and 2 can also be found within this repository. 
+
+*This is an introductory README File, the README files for Part 1 and 2 can also be found within this repository.*
