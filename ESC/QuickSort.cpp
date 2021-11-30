@@ -7,12 +7,25 @@ int Partition(int array[], int low, int high, PivotChoice pivotChoice)
 {
     switch (pivotChoice)
     {
-        case PivotChoice::LastElement:
-            std::swap(array[high], array[low]);
-            break;
         case PivotChoice::RandomElement:
             srand(time(0));
             std::swap(array[low + (rand() % ((high - low) + 1))], array[low]);
+            break;
+        case PivotChoice::Median:
+            int middle = (low + high) / 2;
+            if (array[low] > array[middle])
+            {
+                std::swap(array[middle], array[low]);
+            }
+            if (array[low] > array[high])
+            {
+                std::swap(array[low], array[high]);
+            }
+            if (array[middle] > array[high])
+            {
+                std::swap(array[high], array[middle]);
+            }
+            std::swap(array[middle], array[low]);
             break;
     }
 
