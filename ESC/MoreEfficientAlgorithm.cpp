@@ -65,17 +65,20 @@ bool findPairSum(vector<int> x, int sum){
 	if(min > sum){
 		return false ;
 	}
-	for(int i = minList.size()-1; i >= 0; i--){
-		for(int j = 0; j < midList.size(); j++){
-			if(minList[i] + midList[j] == sum){
-				return true;
+	if(minList[0] > minList[minList.size()-1])
+		for(int i = 0; i < minList.size(); i++){
+			for(int j = 0; j < midList.size(); j++){
+				if(minList[i] + midList[j] == sum){
+					return true;
+				}
 			}
-		}
 	}
-	for(int i = 0; i > midList.size(); i--){
-		for(int j = i+1; j < midList.size(); j++){
-			if(midList[i] + midList[j] == sum){
-				return true;
+	else{
+		for(int i = minList.size()-1; i >= 0; i--){
+			for(int j = 0; j < midList.size(); j++){
+				if(minList[i] + midList[j] == sum){
+					return true;
+				}
 			}
 		}
 	}
