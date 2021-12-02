@@ -30,16 +30,6 @@ bool findPairSum(vector<int> x, int sum){
 		}
 	}
 	for(int i = 0; i < x.size(); i++){
-		if(x[i] == 0){
-			existsZero = true;
-		}
-		
-		if(x[i] <= sum/2){
-			minList.push_back(x[i]);
-		}
-	    if(x[i] > sum/2 && x[i] < sum){
-			midList.push_back(x[i]);
-		}
 		if(x[i] == sum/2){
 			midChecker++;
 			if(midChecker == 1){
@@ -48,6 +38,12 @@ bool findPairSum(vector<int> x, int sum){
 			if(midChecker >= 2){
 				return true;
 			}
+		}
+		if(x[i] <= sum/2){
+			minList.push_back(x[i]);
+		}
+	    	if(x[i] > sum/2 && x[i] < sum){
+			midList.push_back(x[i]);
 		}
 		if(x[i] == sum && existsZero){
 			return true;
