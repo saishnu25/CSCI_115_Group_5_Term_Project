@@ -5,7 +5,7 @@ This README file contains instructions about how to run and compile the code for
 ---
 
 ## Part 2 - Problem Solving and Analysis
-Part 2 of this project contains one main file named: main.cpp. This .cpp file contains both the brute force solution as well as a more efficient solution to the two sum problem. The brute force algorithm has a time complexity of O(n<sup>2</sup>) while the more efficient version has a time complexity of O(n).
+Part 2 of this project contains one main file named: main.cpp. This .cpp file contains both the brute force solution as well as a more efficient solution to the two sum problem. The brute force algorithm has a time complexity of O(n<sup>2</sup>) while the more efficient version has a time complexity of O(n + (p * q)) where "p" is the size of "minList" and "q" is the size of "midList".
 
 ---
 
